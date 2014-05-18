@@ -71,9 +71,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EmailRequest.h" />
     <ClInclude Include="SMTPserver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EmailRequest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SMTPserver.cpp" />
   </ItemGroup>

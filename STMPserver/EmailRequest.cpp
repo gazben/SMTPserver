@@ -58,12 +58,12 @@ void Email::toString()
 	cout << "Reciver adress: " << reciverAddress << endl;
 }
 
-void Email::ReciverAddress(std::string val)
+void Email::getReciverAddress(std::string val)
 {
 	reciverAddress = val;
 }
 
-std::string Email::ReciverAddress() const
+std::string Email::getReciverAddress() const
 {
 	return reciverAddress;
 }

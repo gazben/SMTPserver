@@ -18,12 +18,18 @@
     <ClInclude Include="SMTPserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EmailRequest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SMTPserver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmailRequest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

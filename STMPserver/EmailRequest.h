@@ -19,12 +19,12 @@ public:
 	std::string getSenderAddress() const;
 	void setSenderAddress(std::string val);
 
-	std::string ReciverAddress() const;
-	void ReciverAddress(std::string val);
+	std::string getReciverAddress() const;
+	void getReciverAddress(std::string val);
 
 	void toString();
 
-	friend sf::Packet& operator <<(sf::Packet& packet, Email email);
+	friend sf::Packet& operator <<(sf::Packet& packet, Email email);		//operator to copy an email into a sendable package
 
 private:
 
