@@ -100,7 +100,7 @@ void SMTPserver::LoadFromFile()
 	std::string senderAddress;
 	std::string reciverAddress;
 
-	for (int i = 0; i < taskQueue.size(); i++){
+	while(!file.eof()){
 		file >> senderAddress;
 		file >> reciverAddress;
 		file >> emailSubject;
