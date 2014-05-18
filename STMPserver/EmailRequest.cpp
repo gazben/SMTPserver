@@ -1,4 +1,4 @@
-#include "Email.h"
+#include "EmailRequest.h"
 
 void Email::setSenderAddress(std::string val)
 {
