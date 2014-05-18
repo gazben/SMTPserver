@@ -2,6 +2,9 @@
 #define SMTPserver_h__
 
 #include <SFML/System.hpp>
+#include <queue>
+
+#include "EmailRequest.h"
 
 class SMTPserver{
 public:
@@ -23,5 +26,9 @@ private:
 
 	void SaveToFile();
 	void LoadFromFile();
+
+
+	sf::Mutex taskLock;
+	std::queue<Email> taskQueue;
 };
 #endif // SMTPserver_h__
