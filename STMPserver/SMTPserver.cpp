@@ -1,4 +1,5 @@
 #include "SMTPserver.h"
+#include "EmailRequest.h"
 
 #include <SFML/Network.hpp>
 #include <iostream>
@@ -6,15 +7,16 @@
 void SMTPserver::Terminate()
 {
 	running = false;
+
 }
 
 void SMTPserver::SendEmails()
 {
-	while (running){
-		std::cout << "Sender is running\n";
-
-		sf::sleep(sf::milliseconds(100));
-	}
+	// 	while (running){
+	// 		std::cout << "Sender is running\n";
+	//
+	// 		sf::sleep(sf::milliseconds(100));
+	// 	}
 }
 
 void SMTPserver::ReciveRequest()
@@ -22,15 +24,17 @@ void SMTPserver::ReciveRequest()
 	sf::TcpListener listener;
 	sf::Socket::Status connectionStatus;
 
+	//listener.setBlocking(false);
+
+	while (listener.listen(3245) != sf::Socket::Done){
+		std::cout << "Connection error";
+
+		sf::sleep(sf::milliseconds(100));
+	}
+
 	while (running){
-		if (listener.listen(25) != sf::Socket::Done){
-			std::cout << "Connection error";
-		}
-		else
-		{
-			std::cout << "Connection established";
-			connectionStatus = sf::Socket::Done;
-		}
+		std::cout << "Connection established";
+		connectionStatus = sf::Socket::Done;
 
 		if (connectionStatus == sf::Socket::Done){
 			sf::TcpSocket client;
@@ -40,12 +44,22 @@ void SMTPserver::ReciveRequest()
 			}
 			else
 			{
+				sf::Packet recived;
 				//we established the connection
-				taskLock.lock();
+				//taskLock.lock();
 
-				//PROCESS THE DATA
+				client.receive(recived);
 
-				taskLock.unlock();
+
+
+				Email recivedEmail;
+				recived >> recivedEmail;
+
+				recivedEmail.toString();
+
+				taskQueue.push(recivedEmail);
+
+				//taskLock.unlock();
 			}
 		}
 
